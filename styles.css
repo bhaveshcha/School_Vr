@@ -1,0 +1,518 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, form, ul, li, a, button {
+  margin: 0;
+  padding: 0;
+  font-family: Aeonik, sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: #FDF6EB;
+  padding: 20px;
+  max-width: 1440px;
+  margin: 64px auto;
+  flex-direction: column;
+}
+
+/* @font-face rules for Aeonik font */
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikTRIAL-Regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400; /* Regular font weight */
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikTRIAL-Bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700; /* Bold font weight */
+}
+
+/* h1 and h2 styles using the Aeonik font */
+h1 {
+  color: black;
+  font-size: 96px;
+  font-family: 'Aeonik', sans-serif; /* Apply Aeonik font */
+  font-weight: 700; /* Use the bold variant of Aeonik */
+  letter-spacing: -0.5px;
+  margin-bottom: 32px;
+}
+
+h2 {
+  color: black;
+  font-size: 64px;
+  font-family: 'Aeonik', sans-serif; /* Apply Aeonik font */
+  font-weight: 700; /* Use the bold variant of Aeonik */
+  letter-spacing: -0.5px;
+  margin-bottom: 32px;
+}
+
+h3 {
+  color: black;
+  font-size: 16px;
+  font-family: 'Aeonik', sans-serif; /* Apply Aeonik font */
+  font-weight: 700; /* Use the bold variant of Aeonik */
+  letter-spacing: -0.5px;
+}
+
+p {
+  color: black;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+p1 {
+  color: black;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0; /* 20px top and bottom, 0px left and right */
+}
+
+.logo-container {
+  width: 192px;
+  height: 39px;
+  position: relative;
+  background: url('/images/Vr\ logo.svg') no-repeat center center;
+  background-size: contain;
+}
+
+
+.nav-items {
+  color: black;
+  font-size: 20px;
+  font-family: Aeonik, sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+/* Base styles for both buttons */
+.button {
+  position: relative;
+  display: inline-block;  /* This will make the button only as wide as its content */
+}
+
+.button .border {
+  width: 100%;  /* This will ensure the border stretches to the width of the .button */
+  height: 100%;  /* Derived from previous calculations */
+  left: 0;
+  top: 4.87px;
+  position: absolute;
+  border: 0.53px #010101 solid;
+}
+
+.button .content {
+  padding-left: 82.96px;
+  padding-right: 82.96px;
+  padding-top: 24.84px;
+  padding-bottom: 24.84px;
+  left: 6.87px;
+  top: 0px;
+  position: relative;
+  justify-content: center;
+  align-items: baseline;
+  gap: 5.28px;
+  display: inline-flex;
+  border: 0.50px black solid;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 20.41px;
+}
+
+/* Styles for Primary Button */
+.primary .content {
+  background: #010101;
+  color: white;
+}
+
+/* Styles for Secondary Button */
+.secondary .border {
+  background: #00D1FF;
+}
+
+.secondary .content {
+  background: white;
+  color: black;
+}
+
+
+
+.nav-items {
+  display: flex;
+  gap: 30px;
+  font-size: 20px;
+}
+
+#hero {
+  position: relative;  /* This makes sure the floating images are positioned relative to the hero section */
+  overflow: hidden;  /* This ensures floating elements do not overflow the hero boundary */
+  margin-top: 64px;
+}
+
+
+/* You can adjust the positions of each floating image by adding specific styles to them. Here are two examples for `floating-image1` and `floating-image2`: */
+
+.floating-image {
+  position: absolute;  /* This takes the image out of the document flow, allowing it to float */
+  animation: float 6s ease-in-out infinite;  /* This will give the floating effect */
+}
+
+/* Keyframes for the floating animation */
+@keyframes float {
+  0% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+  100% {
+      transform: translateY(0px);
+  }
+}
+
+
+/* Style for the combined content section */
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Style for the image content */
+.image-content {
+  flex: 1;
+  position: relative; /* Add position relative to control z-index */
+}
+
+.image-content img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Main content styling */
+main {
+  position: relative;
+  width: 100%; /* Set width to cover the outside body area */
+}
+
+/* Generate white margins */
+main::before,
+main::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -136px; /* Adjust to create the margin outside */
+  bottom: -136px; /* Adjust to create the margin outside */
+  left: -50vw; /* Extend background to the left */
+  right: -50vw; /* Extend background to the right */
+  background-color: #ffffff;
+  z-index: -1; /* Push the pseudo-elements below the content */
+}
+
+/* Flex Container */
+.flex-container {
+  display: flex;
+  align-items: center; /* Centers children vertically */
+  justify-content: space-between; /* Maximizes the space between children */
+  gap: 130px; /* Sets a gap between the children */
+  margin-top: 136px;
+  margin-bottom: 136px;
+}
+
+/* Text Section */
+.text-section {
+  text-align: left; /* Centers the text */
+  position: relative; /* Add position relative to control z-index */
+  z-index: 1; /* Bring the text above the pseudo-elements */
+}
+
+.image-section img {
+  max-width: 100%; /* Ensures the image doesn't overflow its container */
+  height: auto;
+}
+
+/* Text Section + IMages */
+
+.rotated-image {
+  display: inline-block;
+  vertical-align: auto;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+
+
+
+
+
+
+
+
+.Services-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 250px;
+  margin-top: 250px;
+  margin-bottom: 250px;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.box .group-wrapper {
+  border: 0px none;
+  height: 785px;
+  position: relative;
+  width: 691px;
+}
+
+.box .group {
+  top: 0;
+}
+
+.box .frame {
+  -webkit-backdrop-filter: blur(2.81px) brightness(100%);
+  backdrop-filter: blur(2.81px) brightness(100%);
+  background: linear-gradient(
+      0deg,
+      rgb(98.81, 226.89, 255) 0%,
+      rgba(253, 246, 235, 0) 100%,
+      rgba(98.81, 226.89, 255, 0) 100%
+  );
+  height: 351px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 289px;
+}
+
+.box .group-1 {
+  -webkit-backdrop-filter: blur(2.09px) brightness(100%);
+  backdrop-filter: blur(2.09px) brightness(100%);
+  background: linear-gradient(0deg, rgba(253, 246, 235, 0) 0%, rgba(5.1, 0, 255, 0.1) 100%);
+  background-image: url(./images/1.png);
+  background-size: 100% 100%;
+  border-radius: 90.51px;
+  height: 181px;
+  left: 54px;
+  position: absolute;
+  top: 0;
+  width: 181px;
+}
+
+.box .students-will-no {
+  color: #000000;
+  font-family: "Aeonik-Regular", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  left: 35px;
+  letter-spacing: 0.26px;
+  line-height: 22.4px;
+  position: absolute;
+  text-align: center;
+  top: 268px;
+}
+
+h3 {
+  color: #000000;
+  font-family: "Aeonik-Bold", Helvetica;
+  left: 69px;
+  position: absolute;
+  text-align: center;
+  top: 225px;
+}
+
+.box .frame-2 {
+  -webkit-backdrop-filter: blur(2.2px) brightness(100%);
+  backdrop-filter: blur(2.2px) brightness(100%);
+  background: linear-gradient(
+      0deg,
+      rgb(98.81, 226.89, 255) 0%,
+      rgba(253, 246, 235, 0) 100%,
+      rgba(98.81, 226.89, 255, 0) 100%
+  );
+  height: 354px;
+  left: 386px;
+  position: absolute;
+  top: 0;
+  width: 305px;
+}
+
+.box .frame-3 {
+  -webkit-backdrop-filter: blur(2.06px) brightness(100%);
+  backdrop-filter: blur(2.06px) brightness(100%);
+  background: linear-gradient(
+      0deg,
+      rgb(98.81, 226.89, 255) 0%,
+      rgba(253, 246, 235, 0) 100%,
+      rgba(98.81, 226.89, 255, 0) 100%
+  );
+  height: 332px;
+  left: 0;
+  position: absolute;
+  top: 448px;
+  width: 289px;
+}
+
+.box .group-2 {
+  -webkit-backdrop-filter: blur(2.09px) brightness(100%);
+  backdrop-filter: blur(2.09px) brightness(100%);
+  background: linear-gradient(180deg, rgba(253, 246, 235, 0) 0%, rgba(5.1, 0, 255, 0.1) 100%);
+  background-image: url(./images/4.png);
+  background-size: 100% 100%;
+  border-radius: 90.51px;
+  height: 181px;
+  left: 54px;
+  position: absolute;
+  top: 0;
+  width: 181px;
+}
+
+
+.box .text-wrapper-2 {
+  color: #000000;
+  font-family: "Aeonik-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 102px;
+  letter-spacing: -0.19px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 226px;
+  white-space: nowrap;
+}
+
+.box .teacehrs_-will-no {
+  color: #000000;
+  font-family: "Aeonik-Regular", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  left: 43px;
+  letter-spacing: 0.26px;
+  line-height: 16.5px;
+  position: absolute;
+  text-align: center;
+  top: 261px;
+}
+
+.box .group-3 {
+  -webkit-backdrop-filter: blur(2.09px) brightness(100%);
+  backdrop-filter: blur(2.09px) brightness(100%);
+  background: linear-gradient(0deg, rgba(253, 246, 235, 0) 0%, rgba(5.1, 0, 255, 0.1) 100%);
+  background-image: url(./images/2.png);
+  background-size: 100% 100%;
+  border-radius: 90.51px;
+  height: 181px;
+  left: 54px;
+  position: absolute;
+  top: 0;
+  width: 181px;
+}
+
+.box .text-wrapper-3 {
+  color: #000000;
+  font-family: "Aeonik-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 102px;
+  letter-spacing: -0.19px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 226px;
+  white-space: nowrap;
+}
+
+.box .a-imagine-taking-a {
+  color: #000000;
+  font-family: "Aeonik-Regular", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  left: 43px;
+  letter-spacing: 0.26px;
+  line-height: 16.5px;
+  position: absolute;
+  text-align: center;
+  top: 261px;
+}
+
+.box .frame-4 {
+  -webkit-backdrop-filter: blur(2.08px) brightness(100%);
+  backdrop-filter: blur(2.08px) brightness(100%);
+  background: linear-gradient(
+      0deg,
+      rgb(98.81, 226.89, 255) 0%,
+      rgba(253, 246, 235, 0) 100%,
+      rgba(98.81, 226.89, 255, 0) 100%
+  );
+  height: 334px;
+  left: 387px;
+  position: absolute;
+  top: 451px;
+  width: 304px;
+}
+
+.box .group-4 {
+  -webkit-backdrop-filter: blur(2.08px) brightness(100%);
+  backdrop-filter: blur(2.08px) brightness(100%);
+  background: linear-gradient(0deg, rgba(253, 246, 235, 0) 0%, rgba(5.1, 0, 255, 0.1) 100%);
+  background-image: url(./images/3.png);
+  background-size: 100% 100%;
+  border-radius: 90.08px;
+  height: 180px;
+  left: 62px;
+  position: absolute;
+  top: 22px;
+  width: 180px;
+}
+
+.box .text-wrapper-4 {
+  color: #000000;
+  font-family: "Aeonik-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  left: 80px;
+  letter-spacing: -0.19px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 227px;
+  white-space: nowrap;
+}
+
+.box .complex-concepts {
+  color: #000000;
+  font-family: "Aeonik-Regular", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  left: 40px;
+  letter-spacing: 0.26px;
+  line-height: 16.6px;
+  position: absolute;
+  text-align: center;
+  top: 263px;
+}
+
+
